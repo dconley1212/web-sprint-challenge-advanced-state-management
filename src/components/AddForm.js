@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { addSmurf } from "../actions";
+import { addError } from "../actions";
 
 const AddForm = (props) => {
   const [state, setState] = useState({
@@ -10,7 +12,7 @@ const AddForm = (props) => {
   });
 
   //remove when error state is added
-  const { error } = props;
+  const { error, dispatch } = props;
 
   const handleChange = (e) => {
     setState({
@@ -23,8 +25,10 @@ const AddForm = (props) => {
     e.preventDefault();
     if (state.name === "" || state.position === "" || state.nickname === "") {
       //dispatch a custom error action
+      dispatch(addError());
     } else {
       //dispatch an addSmurf action
+      dispatch(addSmurf(state));
     }
   };
 

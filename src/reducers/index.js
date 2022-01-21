@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
       };
       return {
         ...state,
-        smurfs: newSmurf,
+        smurfs: [...state.smurfs, newSmurf],
         isLoading: false,
         error: "",
       };
@@ -53,7 +53,7 @@ const reducer = (state = initialState, action) => {
     case ADD_ERROR: {
       return {
         ...state,
-        smurfs: [],
+        smurfs: [...state.smurfs],
         isLoading: false,
         error: "Error: name, nickname, and position fields required",
       };

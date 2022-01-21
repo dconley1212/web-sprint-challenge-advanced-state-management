@@ -14,8 +14,6 @@ worker.start();
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
-console.log(store.getState());
-
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
